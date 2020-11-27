@@ -99,8 +99,11 @@ main {
 .box-adverts {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     height: 100%;
+}
+.advert_item {
+    margin: 2rem 0;
 }
 .advert_img{
     width: 100%;
