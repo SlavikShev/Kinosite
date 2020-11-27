@@ -20,8 +20,8 @@ class Film
         $result = $this->db->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add($name, $year) {
-        $query = "INSERT INTO films (id, name, year) VALUES (NULL, '{$name}', '{$year}');";
+    public function add($name, $year, $description) {
+        $query = "INSERT INTO films (id, name, year, description) VALUES (NULL, '{$name}', '{$year}', '{$description}');";
         $this->db->query($query);
     }
 
@@ -37,9 +37,9 @@ class Film
         return $result->fetch_assoc();
     }
 
-    public function update($id, $name, $year)
+    public function update($id, $name, $year, $description)
     {
-        $query = "UPDATE films SET name = '$name', year = '$year' WHERE id = $id;";
+        $query = "UPDATE films SET name = '$name', year = '$year', description = '$description' WHERE id = $id;";
         $this->db->query($query);
     }
 }

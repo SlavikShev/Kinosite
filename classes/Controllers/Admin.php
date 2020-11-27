@@ -38,7 +38,9 @@ class Admin implements controllerable
     public function save() {
         $name = filter_input(INPUT_POST,'name');
         $year = filter_input(INPUT_POST,'year');
-        $this->model->add($name,$year);
+        $description = filter_input(INPUT_POST,'description');
+
+        $this->model->add($name,$year,$description);
         bootstrap::redirect("/admin/index");
     }
 
@@ -60,8 +62,9 @@ class Admin implements controllerable
     {
         $name = filter_input(INPUT_POST, 'name');
         $year = filter_input(INPUT_POST, 'year');
+        $description = filter_input(INPUT_POST, 'description');
         $id = filter_input(INPUT_POST, 'id');
-        $this->model->update($id, trim($name), $year);
+        $this->model->update($id, trim($name), $year, $description);
         bootstrap::redirect('/admin/index');
     }
 }
