@@ -1,7 +1,8 @@
+<div class="main-box_content">
 <h2>Welcome to the greatest film site</h2>
 <?php if (count($this->films)): ?>
     <?php foreach ($this->films as $film): ?>
-        <table>
+        <table class="content-table">
             <tr>
                 <td><?= $film['name'] ?></td>
             </tr>
@@ -16,3 +17,4 @@
 <?php else: ?>
 <p>Sorry, there are no films yet</p>
 <?php endif ?>
+</div>
