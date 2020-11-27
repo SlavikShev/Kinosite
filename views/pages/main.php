@@ -2,17 +2,17 @@
 <h2>Welcome to the greatest film site</h2>
 <?php if (count($this->films)): ?>
     <?php foreach ($this->films as $film): ?>
-        <table class="content-table">
-            <tr>
+        <div class="content-table">
+            <h2>
                 <td><?= $film['name'] ?></td>
-            </tr>
-            <tr>
+            </h2>
+            <pre>
                 <td><?= $film['description'] ?></td>
-            </tr>
-            <tr>
+            </pre>
+            <p>
                 <td><?= $film['year'] ?></td>
-            </tr>
-        </table>
+            </p>
+        </div>
     <?php endforeach; ?>
 <?php else: ?>
 <p>Sorry, there are no films yet</p>
