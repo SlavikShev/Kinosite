@@ -1,6 +1,7 @@
 :root {
     --background-color: rgba(0, 0, 0, 1);
     --background-color-left: rgba(100, 100, 100, 1);
+    --background-color-content_hover: rgb(228, 228, 228);
 }
 * {
     padding: 0;
@@ -79,6 +80,9 @@ main {
     border: 2px solid #000;
     border-radius: 10px;
     margin-bottom: 30px;
+}
+.content-table:hover {
+    background-color: var(--background-color-content_hover);
 }
 .main-box_content > :last-child {
     margin-bottom: 0;
