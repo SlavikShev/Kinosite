@@ -1,10 +1,10 @@
 <div class="main-box_content">
-    <h2>Welcome to the greatest film site</h2>
+    <h2 class="content_h2">Welcome to the greatest film site</h2>
     <?php if (count($this->films)): ?>
         <?php foreach ($this->films as $film): ?>
             <div class="content-table">
                 <h2>
-                    <?= $film['name'] ?><
+                    <?= $film['name'] ?>
                 </h2>
                 <pre><?= $film['description'] ?>
             </pre>
