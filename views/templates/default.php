@@ -17,11 +17,6 @@
                                  alt="Logo"
                                  class="header-logo_img img"></a>
             </div>
-            <div class="box-login">
-                <form action="#">
-                    <input type="text">
-                </form>
-            </div>
         </nav>
     </header>
     <main>
