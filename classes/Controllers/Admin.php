@@ -15,7 +15,6 @@ class Admin extends AbstractController
 
     public function index()
     {
-        $film = new Film();
         $this->view->films = $this->model->all();
         $this->view->page = "admin.index";
         $this->view->render();
