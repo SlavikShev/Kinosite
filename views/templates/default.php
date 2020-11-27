@@ -43,6 +43,11 @@
         <div class="main-box_second">
             <?php include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php' ?>
         </div>
+        <div class="main-adverts">
+            <div class="box-adverts">
+            
+            </div>
+        </div>
     </main>
     <footer>
         <div><p>JUN-2020</p></div>

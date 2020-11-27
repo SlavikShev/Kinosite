@@ -1,5 +1,6 @@
 :root {
     --background-color: rgba(0,0,0,1);
+    --background-color-left: rgba(100,100,100,1);
 }
 
 * {
@@ -34,8 +35,8 @@ body {
     .header-nav > div:first-child {
         width: 30%;
     }
-    .header-nav > div:last-child {
-        width: 70%;
+    .header-nav > div:nth-child(2){
+        width: max-content;
     }
 
     .header-box-logo {
@@ -54,12 +55,18 @@ body {
         width: 30%;
     }
     .main-box_second {
-        width: 70%;
+        width: 60%;
+    }
+    .main-adverts > div:last-child {
+        width: 10%;
+        background-color: var(--background-color-left);
     }
 
 /*---------*/
 /*left-box*/
-
+    .main-box_first {
+        background-color: var(--background-color-left);
+    }
 /*---------*/
 /*right-box*/
     .main-box_content {
