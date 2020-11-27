@@ -40,7 +40,8 @@
         </div>
         <div class="main-adverts">
             <div class="box-adverts">
-            
+                <a href="https://www.tesla.com/models" target="_blank"><img src="images/tesla-s.jpg" alt = "tesla-s"></a>
+                <a href="https://www.tesla.com/solarpanels" target="_blank"><img src="images/tesla-solar-panel.jpg" alt = "tesla-solar-panel"></a>
             </div>
         </div>
     </main>
