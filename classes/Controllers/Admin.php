@@ -3,23 +3,14 @@
 
 namespace Controllers;
 
-use View;
-use Models\Film;
 use bootstrap;
 
-class Admin implements controllerable
+class Admin extends AbstractController
 {
-    /**
-     * @var View
-     */
-    protected $view;
-    protected $model;
-
     public function __construct()
     {
-        $this->view = new View();
+        parent::__construct();
         $this->view->template = "admin";
-        $this->model = new Film();
     }
 
     public function index()

@@ -5,16 +5,12 @@ namespace Controllers;
 use Models\Film;
 use View;
 
-class Index implements controllerable
+class Index extends AbstractController
 {
-    protected $view;
-    protected $model;
-
     public function __construct()
     {
-        $this->view = new View();
+        parent::__construct();
         $this->view->template = 'default';
-        $this->model = new Film();
     }
 
     public function index()
