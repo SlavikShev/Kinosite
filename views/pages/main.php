@@ -14,5 +14,5 @@
         </table>
     <?php endforeach; ?>
 <?php else: ?>
-<p>Sorry, there are no films yet</p>
+    <p>Sorry, there are no films yet</p>
 <?php endif ?>

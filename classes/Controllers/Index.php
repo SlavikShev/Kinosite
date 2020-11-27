@@ -1,4 +1,5 @@
 <?php
+
 namespace Controllers;
 
 use Models\Film;
@@ -18,8 +19,8 @@ class Index implements controllerable
 
     public function index()
     {
-       $this->view->page = 'pages.main';
-       $this->view->films = $this->model->all();
-       $this->view->render();
+        $this->view->page = 'pages.main';
+        $this->view->films = $this->model->all();
+        $this->view->render();
     }
 }
