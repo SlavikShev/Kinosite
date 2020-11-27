@@ -39,6 +39,8 @@ class Film
 
     public function update($id, $name, $year, $description)
     {
+        $name = addslashes($name);
+        $description = addslashes($description);
         $query = "UPDATE films SET name = '$name', year = '$year', description = '$description' WHERE id = $id;";
         $this->db->query($query);
     }
