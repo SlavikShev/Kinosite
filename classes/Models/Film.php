@@ -15,12 +15,15 @@ class Film extends AbstractModel
         $result = $this->db->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function add($name, $year, $description) {
+
+    public function add($name, $year, $description)
+    {
         $query = "INSERT INTO films (id, name, year, description) VALUES (NULL, '{$name}', '{$year}', '{$description}');";
         $this->db->query($query);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $query = "DELETE FROM films WHERE id = $id";
         $this->db->query($query);
     }

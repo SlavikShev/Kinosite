@@ -13,7 +13,7 @@ class Admin extends AbstractController
         parent::__construct();
         $this->view->template = "admin";
         $this->model = new Film();
-        if (!isset($_SESSION['login'])){
+        if (!isset($_SESSION['login'])) {
             bootstrap::redirect("/auth/index");
         }
     }
@@ -25,21 +25,24 @@ class Admin extends AbstractController
         $this->view->render();
     }
 
-    public function create(){
+    public function create()
+    {
         $this->view->page = "admin.create";
         $this->view->render();
     }
 
-    public function save() {
-        $name = filter_input(INPUT_POST,'name');
-        $year = filter_input(INPUT_POST,'year');
-        $description = filter_input(INPUT_POST,'description');
+    public function save()
+    {
+        $name = filter_input(INPUT_POST, 'name');
+        $year = filter_input(INPUT_POST, 'year');
+        $description = filter_input(INPUT_POST, 'description');
 
-        $this->model->add($name,$year,$description);
+        $this->model->add($name, $year, $description);
         bootstrap::redirect("/admin/index");
     }
 
-    public function delete(){
+    public function delete()
+    {
         $id = filter_input(INPUT_POST, 'id');
         $this->model->delete($id);
         bootstrap::redirect("/admin/index");

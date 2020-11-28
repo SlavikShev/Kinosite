@@ -6,8 +6,7 @@
                 <h2>
                     <?= $film['name'] ?>
                 </h2>
-                <p><?= $film['description'] ?>
-            </p>
+                <p><?= $film['description'] ?></p>
                 <p>Year:<?= $film['year'] ?></p>
             </div>
         <?php endforeach; ?>

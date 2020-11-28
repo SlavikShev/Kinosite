@@ -10,44 +10,47 @@
           href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav class="header-nav">
-            <div class="header-box-logo">
-                <a href="#"><img src="images/logo.png"
-                                 alt="Logo"
-                                 class="header-logo_img img"></a>
-            </div>
+<header>
+    <nav class="header-nav">
+        <div class="header-box-logo">
+            <a href="#"><img src="images/logo.png"
+                             alt="Logo"
+                             class="header-logo_img img"></a>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="main-box_first">
+        <nav class="main-nav">
+            <ul>
+                <li>
+                    <a href="#">#</a>
+                </li>
+                <li>
+                    <a href="#">#</a>
+                </li>
+                <li>
+                    <a href="#">#</a>
+                </li>
+            </ul>
         </nav>
-    </header>
-    <main>
-        <div class="main-box_first">
-            <nav class="main-nav">
-                <ul>
-                    <li>
-                        <a href="#">#</a>
-                    </li>
-                    <li>
-                        <a href="#">#</a>
-                    </li>
-                    <li>
-                        <a href="#">#</a>
-                    </li>
-                </ul>
-            </nav>
+    </div>
+    <div class="main-box_second">
+        <?php include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php' ?>
+    </div>
+    <div class="main-adverts">
+        <div class="box-adverts">
+            <div class="advert_item"><a href="https://www.tesla.com/models" target="_blank"><img
+                            src="images/tesla-s.jpg" alt="tesla-s" class="img advert_img"></a></div>
+            <div class="advert_item">
+                <a href="https://www.tesla.com/solarpanels" target="_blank"><img src="images/tesla-solar-panel.jpg"
+                                                                                 alt="tesla-solar-panel"
+                                                                                 class="img advert_img"></a></div>
         </div>
-        <div class="main-box_second">
-            <?php include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php' ?>
-        </div>
-        <div class="main-adverts">
-            <div class="box-adverts">
-                <div class="advert_item"><a href="https://www.tesla.com/models" target="_blank"><img src="images/tesla-s.jpg" alt = "tesla-s" class="img advert_img"></a></div>
-                <div class="advert_item">
-                <a href="https://www.tesla.com/solarpanels" target="_blank"><img src="images/tesla-solar-panel.jpg" alt = "tesla-solar-panel" class="img advert_img"></a></div>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div><p>JUN-2020</p></div>
-    </footer>
+    </div>
+</main>
+<footer>
+    <div><p>JUN-2020</p></div>
+</footer>
 </body>
 </html>
