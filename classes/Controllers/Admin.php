@@ -4,6 +4,7 @@
 namespace Controllers;
 
 use bootstrap;
+use Models\Film;
 
 class Admin extends AbstractController
 {
@@ -11,6 +12,10 @@ class Admin extends AbstractController
     {
         parent::__construct();
         $this->view->template = "admin";
+        $this->model = new Film();
+        if (!isset($_SESSION['login'])){
+            bootstrap::redirect("/auth/index");
+        }
     }
 
     public function index()

@@ -4,7 +4,6 @@
 namespace Controllers;
 
 use View;
-use Models\Film;
 
 abstract class AbstractController implements controllerable
 {
@@ -13,9 +12,9 @@ abstract class AbstractController implements controllerable
      */
     protected $view;
     protected $model;
+
     public function __construct()
     {
         $this->view = new View();
-        $this->model = new Film();
     }
 }

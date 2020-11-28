@@ -6,6 +6,7 @@ class bootstrap
 {
     static public function init()
     {
+        session_start();
         $uri = $_SERVER['REQUEST_URI'];
         $uriArray = explode('/', $uri);
         array_shift($uriArray);

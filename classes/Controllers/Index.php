@@ -11,6 +11,7 @@ class Index extends AbstractController
     {
         parent::__construct();
         $this->view->template = 'default';
+        $this->model = new Film();
     }
 
     public function index()
