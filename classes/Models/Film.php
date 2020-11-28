@@ -5,14 +5,9 @@ namespace Models;
 
 use mysqli;
 
-class Film
+class Film extends AbstractModel
 {
     protected $db;
-
-    public function __construct()
-    {
-        $this->db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    }
 
     public function all()
     {
