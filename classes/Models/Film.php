@@ -22,6 +22,8 @@ class Film extends AbstractModel
         $this->db->query($query);
         if($this->db->query($query)){
             $_SESSION['message'] = "Film was added";
+        }else{
+            $_SESSION['message'] = "Film wasn`t added";
         }
     }
 
