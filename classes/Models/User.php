@@ -52,5 +52,8 @@ class User extends AbstractModel
     public function deleteUser($id) {
         $query = "DELETE FROM users WHERE id = $id;";
         $this->db->query($query);
+        if($this->db->query($query)){
+            $_SESSION['message'] = "User was deleted";
+        }
     }
 }
