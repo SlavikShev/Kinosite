@@ -20,12 +20,18 @@ class Film extends AbstractModel
     {
         $query = "INSERT INTO films (id, name, year, description) VALUES (NULL, '{$name}', '{$year}', '{$description}');";
         $this->db->query($query);
+        if($this->db->query($query)){
+            $_SESSION['message'] = "Film was added";
+        }
     }
 
     public function delete($id)
     {
         $query = "DELETE FROM films WHERE id = $id";
         $this->db->query($query);
+        if($this->db->query($query)){
+            $_SESSION['message'] = "Film was deleted";
+        }
     }
 
     public function getFilm($id)
@@ -41,5 +47,8 @@ class Film extends AbstractModel
         $description = addslashes($description);
         $query = "UPDATE films SET name = '$name', year = '$year', description = '$description' WHERE id = $id;";
         $this->db->query($query);
+        if($this->db->query($query)){
+            $_SESSION['message'] = "Film was updated";
+        }
     }
 }
