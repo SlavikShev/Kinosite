@@ -84,7 +84,6 @@ class Admin extends AbstractController
         $password= filter_input(INPUT_POST,'password');
         $confirmPassword= filter_input(INPUT_POST,'confirm_password');
         if(($password === $confirmPassword) && strlen($password) >= 4 && (strlen($login) >= 4)) {
-            var_dump($login,$password,$confirmPassword);
             if($user->checkLogin($login )) {   //если данный логин не занят
                 password_hash($password, PASSWORD_DEFAULT);
                 $user->saveUser($login,$password);
