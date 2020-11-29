@@ -41,7 +41,7 @@ class Admin extends AbstractController
         $description = filter_input(INPUT_POST, 'description');
 
         $this->model->add($name, $year, $description);
-        bootstrap::redirect("/admin/index");
+        bootstrap::redirect("/admin/films");
     }
 
     public function delete()
@@ -88,20 +88,9 @@ class Admin extends AbstractController
         $login = trim(filter_input(INPUT_POST,'login'));
         $password= filter_input(INPUT_POST,'password');
         $confirmPassword= filter_input(INPUT_POST,'confirm_password');
-        if(($password === $confirmPassword) && strlen($password) >= 4 && (strlen($login) >= 4)) {
-            if($user->checkLogin($login )) {   //если данный логин не занят
-                $pass = password_hash($password, PASSWORD_DEFAULT);
-                $user->saveUser($login,$pass);
-                $_SESSION['message'] = "User is added";
-                return bootstrap::redirect('/admin/index');
-            }else{
-                $_SESSION['message'] = "This login is exists";
-            }
-        }else{
-            $_SESSION['message'] = "Passwords aren`t match";
-        }
-        bootstrap::redirect('/admin/createaccount');
+        $user->addUser($login,$password, $confirmPassword);
     }
+
     public function deleteUser() {
         $user = new User();
         $id = filter_input(INPUT_POST, 'userid');
