@@ -67,4 +67,5 @@
             </tbody>
         <?php endif; ?>
     </table>
+    <a href="/admin/createaccount">Create</a>
 </div>

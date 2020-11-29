@@ -37,10 +37,15 @@ class User extends AbstractModel
     public function checkLogin($login) {
         $query = "SELECT * FROM users WHERE login LIKE '$login'";
         $result = $this->db->query($query);
-        return $result->fetch_assoc();
+        $tmp = $result->fetch_assoc();
+        if(empty($tmp)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public function addUser($login,$password) {
+    public function saveUser($login,$password) {
         $query = "INSERT INTO users (id, login, password) VALUES (NULL, '$login', '$password');";
         $this->db->query($query);
     }

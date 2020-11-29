@@ -73,21 +73,25 @@ class Admin extends AbstractController
 ###    USERS    ###
 ###################
 
-    public function createUser() {
-        $user = new User();
+    public function createAccount() {
+        $this->view->page = "admin.createaccount";
+        $this->view->render();
+    }
 
+    public function addUser() {
+        $user = new User();
         $login = trim(filter_input(INPUT_POST,'login'));
         $password= filter_input(INPUT_POST,'password');
         $confirmPassword= filter_input(INPUT_POST,'confirm_password');
-        if((($password === $confirmPassword) && $password >= 4) && $login >= 4) { // если больше 4- символов, и пароли равны
-            if(!$user->checkLogin($login )) {   //если данный логин не занят
-                $password = password_hash($password, PASSWORD_DEFAULT);
-                $user->addUser($login,$password);
+        if(($password === $confirmPassword) && strlen($password) >= 4 && (strlen($login) >= 4)) {
+            var_dump($login,$password,$confirmPassword);
+            if($user->checkLogin($login )) {   //если данный логин не занят
+                password_hash($password, PASSWORD_DEFAULT);
+                $user->saveUser($login,$password);
+
             }
         }
-        else {
-            //TODO вывести сообщение о том что данный логин уже занят
-        }
+        bootstrap::redirect('/admin/index');
     }
     public function deleteUser() {
         $user = new User();
