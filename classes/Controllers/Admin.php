@@ -48,7 +48,7 @@ class Admin extends AbstractController
     {
         $id = filter_input(INPUT_POST, 'id');
         $this->model->delete($id);
-        bootstrap::redirect("/admin/index");
+        bootstrap::redirect("/admin/films");
     }
 
     public function edit()
@@ -66,7 +66,7 @@ class Admin extends AbstractController
         $description = filter_input(INPUT_POST, 'description');
         $id = filter_input(INPUT_POST, 'id');
         $this->model->update($id, trim($name), $year, $description);
-        bootstrap::redirect('/admin/index');
+        bootstrap::redirect('/admin/films');
     }
     public function films(){
         $this->view->films = $this->model->all();
@@ -90,18 +90,23 @@ class Admin extends AbstractController
         $confirmPassword= filter_input(INPUT_POST,'confirm_password');
         if(($password === $confirmPassword) && strlen($password) >= 4 && (strlen($login) >= 4)) {
             if($user->checkLogin($login )) {   //если данный логин не занят
-                password_hash($password, PASSWORD_DEFAULT);
-                $user->saveUser($login,$password);
-
+                $pass = password_hash($password, PASSWORD_DEFAULT);
+                $user->saveUser($login,$pass);
+                $_SESSION['message'] = "User is added";
+                return bootstrap::redirect('/admin/index');
+            }else{
+                $_SESSION['message'] = "This login is exists";
             }
+        }else{
+            $_SESSION['message'] = "Passwords aren`t match";
         }
-        bootstrap::redirect('/admin/index');
+        bootstrap::redirect('/admin/createaccount');
     }
     public function deleteUser() {
         $user = new User();
         $id = filter_input(INPUT_POST, 'userid');
         $user->deleteUser($id);
-        bootstrap::redirect('/admin/index');
+        bootstrap::redirect('/admin/users');
     }
 
     public function users(){
