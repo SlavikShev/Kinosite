@@ -3,6 +3,7 @@
 
 namespace Models;
 
+use bootstrap;
 
 class User extends AbstractModel
 {
@@ -25,35 +26,58 @@ class User extends AbstractModel
         return false;
     }
 
-    public function getAllUsers() {
+    public function getAllUsers()
+    {
         $query = "SELECT * FROM users";
         $result = $this->db->query($query);
-        while($tmp = $result->fetch_assoc()) {
+        while ($tmp = $result->fetch_assoc()) {
             $this->users[] = $tmp;
         }
         return $this->users;
     }
 
-    public function checkLogin($login) {
+    public function checkLogin($login)
+    {
         $query = "SELECT * FROM users WHERE login LIKE '$login'";
         $result = $this->db->query($query);
         $tmp = $result->fetch_assoc();
-        if(empty($tmp)) {
+        if (empty($tmp)) {
             return true;
         } else {
             return false;
         }
     }
 
-    public function saveUser($login,$password) {
+    public function saveUser($login, $password)
+    {
         $query = "INSERT INTO users (id, login, password) VALUES (NULL, '$login', '$password');";
         $this->db->query($query);
     }
-    public function deleteUser($id) {
+
+    public function deleteUser($id)
+    {
         $query = "DELETE FROM users WHERE id = $id;";
         $this->db->query($query);
-        if($this->db->query($query)){
+        if ($this->db->query($query)) {
             $_SESSION['message'] = "User was deleted";
         }
+    }
+
+    public function addUser($login, $password, $confirmPassword)
+    {
+        if (($password === $confirmPassword) && strlen($password) >= 4 && (strlen($login) >= 4)) {
+            if ($this->checkLogin($login)) {   //если данный логин не занят
+                $pass = password_hash($password, PASSWORD_DEFAULT);
+                $this->saveUser($login, $pass);
+                $_SESSION['message'] = "User is added";
+                bootstrap::redirect('/admin/users');
+                return $_SESSION['message'];
+            } else {
+                $_SESSION['message'] = "This login is exists";
+            }
+        } else {
+            $_SESSION['message'] = "Passwords aren`t match";
+        }
+        bootstrap::redirect('/admin/createaccount');   //todo ask about redirects in this part. Are they allowed here?
     }
 }
