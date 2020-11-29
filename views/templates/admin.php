@@ -12,14 +12,15 @@
     <?php if (isset($_SESSION['login'])): ?>
         <a href="/auth/logout">logout</a>
     <?php endif ?>
+    <?php if (isset($_SESSION['message'])): ?>
+        <p><?= $_SESSION['message'] ?></p>
+        <?php unset($_SESSION['message']) ?>
+    <?php endif ?>
 </header>
-<?php if (isset($_SESSION['message'])): ?>
-    <p><?= $_SESSION['message'] ?></p>
-    <?php unset($_SESSION['message']) ?>
-<?php endif ?>
-<h1>Site</h1>
-<?php
-include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php';
-?>
+<main>
+    <h1>Admin panel</h1>
+    <?php include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php'; ?>
+</main>
+<footer></footer>
 </body>
 </html>
