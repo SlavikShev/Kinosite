@@ -68,6 +68,11 @@ class Admin extends AbstractController
         $this->model->update($id, trim($name), $year, $description);
         bootstrap::redirect('/admin/index');
     }
+    public function films(){
+        $this->view->films = $this->model->all();
+        $this->view->page = "admin.films";
+        $this->view->render();
+    }
 
 ###################
 ###    USERS    ###
@@ -97,5 +102,12 @@ class Admin extends AbstractController
         $id = filter_input(INPUT_POST, 'userid');
         $user->deleteUser($id);
         bootstrap::redirect('/admin/index');
+    }
+
+    public function users(){
+        $this->view->users = $this->model = new User();
+        $this->view->users = $this->model->getAllUsers();
+        $this->view->page = "admin.users";
+        $this->view->render();
     }
 }
