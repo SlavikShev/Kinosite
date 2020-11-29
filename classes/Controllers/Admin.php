@@ -5,6 +5,7 @@ namespace Controllers;
 
 use bootstrap;
 use Models\Film;
+use Models\User;
 
 class Admin extends AbstractController
 {
@@ -21,6 +22,8 @@ class Admin extends AbstractController
     public function index()
     {
         $this->view->films = $this->model->all();
+        $this->view->users = $this->model = new User(); //TODO
+        $this->view->users = $this->model->getAllUsers();
         $this->view->page = "admin.index";
         $this->view->render();
     }
@@ -63,6 +66,33 @@ class Admin extends AbstractController
         $description = filter_input(INPUT_POST, 'description');
         $id = filter_input(INPUT_POST, 'id');
         $this->model->update($id, trim($name), $year, $description);
+        bootstrap::redirect('/admin/index');
+    }
+
+###################
+###    USERS    ###
+###################
+
+    public function createUser() {
+        $user = new User();
+
+        $login = trim(filter_input(INPUT_POST,'login'));
+        $password= filter_input(INPUT_POST,'password');
+        $confirmPassword= filter_input(INPUT_POST,'confirm_password');
+        if((($password === $confirmPassword) && $password >= 4) && $login >= 4) { // если больше 4- символов, и пароли равны
+            if(!$user->checkLogin($login )) {   //если данный логин не занят
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $user->addUser($login,$password);
+            }
+        }
+        else {
+            //TODO вывести сообщение о том что данный логин уже занят
+        }
+    }
+    public function deleteUser() {
+        $user = new User();
+        $id = filter_input(INPUT_POST, 'userid');
+        $user->deleteUser($id);
         bootstrap::redirect('/admin/index');
     }
 }
