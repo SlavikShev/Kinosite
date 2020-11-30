@@ -7,8 +7,8 @@
     </a>
 </div>
 <div>
-    <table>
-        <caption>Users</caption>
+    <table class="tableStyle">
+    <caption>Users</caption>
         <thead>
         <tr>
             <th>#ID</th>
@@ -26,7 +26,7 @@
                         <td>
                             <form method="post" action="/admin/deleteuser">
                                 <input type="hidden" name="userid" value="<?= $user['id'] ?>">
-                                <button type="submit"><i class="fas fa-trash"></i></button>
+                                <button type="submit" class="redBG"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
                     <?php else :?>

@@ -7,13 +7,14 @@
     </a>
 </div>
 <div>
-    <table>
+    <table class="tableStyle">
         <caption>Films</caption>
         <thead>
         <tr>
-            <th>#</th>
-            <th>year</th>
-            <th>name</th>
+            <th>#ID</th>
+            <th>Year</th>
+            <th>Name</th>
+            <th colspan="2">Action</th>
         </tr>
         </thead>
         <?php if (count($this->films)): ?>
@@ -26,13 +27,13 @@
                     <td>
                         <form method="post" action="/admin/delete">
                             <input type="hidden" name="id" value="<?= $film['id'] ?>">
-                            <button type="submit"><i class="fas fa-trash"></i></button>
+                            <button type="submit" class="redBG"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
                     <td>
                         <form method="post" action="/admin/edit">
                             <input type="hidden" name="id" value="<?= $film['id'] ?>">
-                            <button type="submit"><i class="fas fa-pencil-alt"></i></button>
+                            <button type="submit" class="yellowBG"><i class="fas fa-pencil-alt"></i></button>
                         </form>
                     </td>
                 </tr>

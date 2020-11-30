@@ -6,54 +6,44 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet"
+          href="../css/admin-panel-style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <style>
-        .usersMenu > i {
-            font-size: 200px;
-
-        }
-
-        .usersBtns {
-            display: flex;
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-        }
-
-        .usersMenu {
-            border: black solid 1px;
-            height: 250px;
-            width: 250px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-    </style>
 </head>
 <body>
 <header>
     <?php if (isset($_SESSION['login'])): ?>
-        <a href="/auth/logout">logout</a>
+        <div class="Out">
+            <a href="/auth/logout">
+                <div class="logOut">
+                    <i class="fas fa-sign-out-alt"></i>
+                    logout
+                </div>
+            </a>
+        </div>
     <?php endif ?>
     <?php if (isset($_SESSION['message'])): ?>
-        <p><?= $_SESSION['message'] ?></p>
+        <div class="mg">
+            <div class="message">
+                <p class="messageStr"><?= $_SESSION['message'] ?></p>
+            </div>
+        </div>
         <?php unset($_SESSION['message']) ?>
     <?php endif ?>
 </header>
 <main>
-    <h1>Admin panel</h1>
-
     <?php if (isset($_SESSION['login'])): ?>
-        <nav>
-            <a href="/admin/index">Admin panel</a>
-            <a href="/admin/films">Films</a>
-            <a href="/admin/users">Users</a>
-        </nav>
+        <h1 class="index">
+            <a href="/admin/index">
+                <div class="indexRef">
+                    <i class="fas fa-home"></i>
+                    Main page
+                </div>
+            </a>
+        </h1>
     <?php endif ?>
     <?php include_once 'views' . DIRECTORY_SEPARATOR . $this->page . '.php'; ?>
 </main>
-<footer></footer>
 </body>
 </html>
