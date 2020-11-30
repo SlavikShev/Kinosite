@@ -3,7 +3,6 @@
 
 namespace Models;
 
-use mysqli;
 
 class Film extends AbstractModel
 {
@@ -19,11 +18,10 @@ class Film extends AbstractModel
     public function add($name, $year, $description)
     {
         $query = "INSERT INTO films (id, name, year, description) VALUES (NULL, '{$name}', '{$year}', '{$description}');";
-        $this->db->query($query);
-        if($this->db->query($query)){
+        if ($this->db->query($query)) {
             $_SESSION['message'] = "Film was added";
-        }else{
-            $_SESSION['message'] = "Film wasn`t added";
+        } else {
+            $_SESSION['message'] = "Film was not added";
         }
     }
 
@@ -31,7 +29,7 @@ class Film extends AbstractModel
     {
         $query = "DELETE FROM films WHERE id = $id";
         $this->db->query($query);
-        if($this->db->query($query)){
+        if ($this->db->query($query)) {
             $_SESSION['message'] = "Film was deleted";
         }
     }
@@ -49,8 +47,10 @@ class Film extends AbstractModel
         $description = addslashes($description);
         $query = "UPDATE films SET name = '$name', year = '$year', description = '$description' WHERE id = $id;";
         $this->db->query($query);
-        if($this->db->query($query)){
+        if ($this->db->query($query)) {
             $_SESSION['message'] = "Film was updated";
+        } else {
+            $_SESSION['message'] = "There was an error updating the film";
         }
     }
 }

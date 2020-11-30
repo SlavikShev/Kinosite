@@ -22,7 +22,7 @@ class Admin extends AbstractController
     public function index()
     {
         $this->view->films = $this->model->all();
-        $this->view->users = $this->model = new User(); //TODO
+        $this->view->users = $this->model = new User();
         $this->view->users = $this->model->getAllUsers();
         $this->view->page = "admin.index";
         $this->view->render();

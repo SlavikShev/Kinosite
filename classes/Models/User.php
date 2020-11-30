@@ -60,6 +60,8 @@ class User extends AbstractModel
         $this->db->query($query);
         if ($this->db->query($query)) {
             $_SESSION['message'] = "User was deleted";
+        } else {
+            $_SESSION['message'] = "There was an error deleting a user";
         }
     }
 
@@ -73,10 +75,10 @@ class User extends AbstractModel
                 bootstrap::redirect('/admin/users');
                 return $_SESSION['message'];
             } else {
-                $_SESSION['message'] = "This login is exists";
+                $_SESSION['message'] = "This login already exists";
             }
         } else {
-            $_SESSION['message'] = "Passwords aren`t match";
+            $_SESSION['message'] = "Passwords are not similar";
         }
         bootstrap::redirect('/admin/createaccount');   //todo ask about redirects in this part. Are they allowed here?
     }
