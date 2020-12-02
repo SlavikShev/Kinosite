@@ -10,11 +10,11 @@
             margin-top: 1rem;
         }
 
-        td {
+        td, th {
             padding: 5px;
         }
 
-        table, tr, td {
+        table, tr, th, td {
             border: 1px solid #000000;
             border-collapse: collapse;
         }
@@ -39,8 +39,15 @@
                     let responseString = xhr.responseText;
                     let rates = JSON.parse(responseString);
                     contentDiv.innerHTML = '';
-                    contentDiv.innerHTML += '<table></table>';
-                    contentTable = document.querySelector('#content table');
+                    contentDiv.innerHTML +=
+                        '<table>' +
+                        '<tr>' +
+                        '<th>Currency</th>' +
+                        '<th>Buy</th>' +
+                        '<th>Sale</th>' +
+                        '</tr>' +
+                        '</table>';
+                    let contentTable = document.querySelector('#content table');
                     rates.forEach(function (val) {
                         contentTable.innerHTML += '<tr><td>' + val.ccy + '</td><td>' + val.buy + '</td><td>' + val.sale + '</td></tr>';
                     });
