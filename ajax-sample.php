@@ -21,9 +21,36 @@
                         let rates = JSON.parse(responseString);
                         let contentDiv = document.getElementById('content');
                         contentDiv.innerHTML = '';
+                        let table = document.createElement('table');
+                        let tr = document.createElement('tr');
+                        let thCurrency = document.createElement('th');
+                        thCurrency.innerText = 'Валюта';
+                        let thBuy = document.createElement('th');
+                        thBuy.innerText = 'Покупка';
+                        let thSale = document.createElement('th');
+                        thSale.innerText = 'Продажа';
+                        tr.append(thCurrency);
+                        tr.append(thBuy);
+                        tr.append(thSale);
+                        table.append(tr);
                         rates.forEach(function(val){
-                            contentDiv.innerHTML+='<p>'+val.ccy+'</p>';
+                            if(val.ccy === 'BTC'){
+                                return;
+                            }
+                            let tr = document.createElement('tr');
+                            let tdCurrency = document.createElement('td');
+                            tdCurrency.innerText = val.ccy;
+                            let tdBuy = document.createElement('td');
+                            tdBuy.innerText = parseFloat(val.buy).toFixed(2);
+                            let tdSale = document.createElement('td');
+                            tdSale.innerText = parseFloat(val.sale).toFixed(2);
+                            tr.append(tdCurrency);
+                            tr.append(tdBuy);
+                            tr.append(tdSale);
+                            table.append(tr);
+                            //contentDiv.innerHTML+='<p>'+val.ccy+'</p>';
                         });
+                        contentDiv.append(table);
                     }else{
                         alert('error');
                     }
