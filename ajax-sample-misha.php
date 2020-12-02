@@ -40,7 +40,7 @@
                     let rates = JSON.parse(responseString);
                     contentDiv.innerHTML = '';
                     contentDiv.innerHTML += '<table></table>';
-                    document.querySelector('#content table');
+                    contentTable = document.querySelector('#content table');
                     rates.forEach(function (val) {
                         contentTable.innerHTML += '<tr><td>' + val.ccy + '</td><td>' + val.buy + '</td><td>' + val.sale + '</td></tr>';
                     });
