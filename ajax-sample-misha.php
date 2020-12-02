@@ -47,9 +47,11 @@
                         '<th>Sale</th>' +
                         '</tr>' +
                         '</table>';
-                    let contentTable = document.querySelector('#content table');
                     rates.forEach(function (val) {
-                        contentTable.innerHTML += '<tr><td>' + val.ccy + '</td><td>' + val.buy + '</td><td>' + val.sale + '</td></tr>';
+                        if (val.ccy === 'BTC') {
+                            return;
+                        }
+                        document.querySelector('#content table').innerHTML += '<tr><td>' + val.ccy + '</td><td>' + parseFloat(val.buy).toFixed(2) + '</td><td>' + parseFloat(val.sale).toFixed(2) + '</td></tr>';
                     });
                 } else {
                     contentDiv.innerHTML = '<p>' + 'Error loaing data' + '</p>';
