@@ -7,6 +7,6 @@
         <label>Year: <input type="year" name="year" value="<?= $this->film['year'] ?>" required></label>
         <label>Name: <input type="text" name="name" value="<?= $this->film['name'] ?>" required></label>
         <label>Description: <textarea name="description"><?= $this->film['description'] ?></textarea></label>
-        <input type="submit" value="Send">
+        <input type="submit" value="Save changes">
     </div>
 </form>

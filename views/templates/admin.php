@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?= substr(strstr($this->page, '\\'), 1) ?></title>
     <link rel="stylesheet"
           href="../css/admin-panel-style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -18,7 +18,7 @@
             <a href="/auth/logout">
                 <div class="logOut">
                     <i class="fas fa-sign-out-alt"></i>
-                    logout
+                    <?= $_SESSION['login'] ?>
                 </div>
             </a>
         </div>

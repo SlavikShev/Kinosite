@@ -7,7 +7,7 @@
         <p><label>login: <input type="text" name="login" required minlength="4"></label></p>
         <p><label>Password: <input type="password" name="password" required minlength="4"></label></p>
         <p><label>Confirm password: <input type="password" name="confirm_password" required minlength="4"></label></p>
-        <input type="submit" value="complete registration">
+        <input type="submit" value="Add user">
     </div>
 </form>
 

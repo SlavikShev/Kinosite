@@ -7,6 +7,6 @@
         <label>Name: <input type="text" name="name" required></label>
         <label>Year: <input type="year" name="year" required></label>
         <label>Description: <textarea name="description" required></textarea></label>
-        <input type="submit" value="Send">
+        <input type="submit" value="Add film">
     </div>
 </form>

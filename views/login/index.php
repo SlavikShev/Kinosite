@@ -9,6 +9,6 @@
                id="login" placeholder="Enter your login" required>
         <label for="pwd">Password</label>
         <input type="password" name="password" id="pwd" placeholder="Enter your password" required>
-        <input type="submit">
+        <input type="submit" value="log in">
     </div>
 </form>

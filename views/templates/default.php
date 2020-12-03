@@ -13,7 +13,7 @@
 <header>
     <nav class="header-nav">
         <div class="header-box-logo">
-            <a href="#"><img src="images/logo.png"
+            <a href="/"><img src="images/logo.png"
                              alt="Logo"
                              class="header-logo_img img"></a>
         </div>
