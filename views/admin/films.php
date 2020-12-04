@@ -40,19 +40,30 @@
                     for(let i=0; i<forms.length; i++){
                         forms[i].onsubmit = function (event) {
                             let id = this.elements.id.value;
-                            let xhr = new XMLHttpRequest();
-                            xhr.open('POST', '/api/delete');
-                            xhr.onreadystatechange = function () {
-                                if (xhr.readyState == 4) {
-                                    if (xhr.status == 200) {
-                                        loadFilms();
-                                    }else{
-                                        alert('delete was failed');
-                                    }
+                            $.ajax({
+                                url: '/api/delete',
+                                type: 'POST',
+                                data: 'id='+id,
+                                success: function(){
+                                    loadFilms();
+                                },
+                                error: function(){
+                                    alert('delete was failed');
                                 }
-                            };
-                            xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-                            xhr.send('id='+id);
+                            });
+                            // let xhr = new XMLHttpRequest();
+                            // xhr.open('POST', '/api/delete');
+                            // xhr.onreadystatechange = function () {
+                            //     if (xhr.readyState == 4) {
+                            //         if (xhr.status == 200) {
+                            //             loadFilms();
+                            //         }else{
+                            //             alert('delete was failed');
+                            //         }
+                            //     }
+                            // };
+                            // xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+                            // xhr.send('id='+id);
                             event.preventDefault();
                         };
                     }
