@@ -19,4 +19,11 @@ class Api extends AbstractController
         header('Content-type: application/json');
         echo $json;
     }
+
+    public function delete(){
+        $id = filter_input(INPUT_POST, 'id');
+        if(!$this->model->delete($id)){
+            header('Status: 406 Not Acceptable');
+        }
+    }
 }
